@@ -32,6 +32,8 @@
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+First we show that $X$ being closed implies completeness. Since a Cauchy sequence in $X$ is a Cauchy sequence in $M$ where $X$ is a subset and $M$ is complete we know that the sequence converges. Since the sequence consists of points of $X$ then every neighborhood of the point of convergence contains elements of $X$, that is it is a limit point. Because $X$ is closed it contains the limit point so every Cauchy sequence in $X$ converges to a point in $X$ and so the set is complete.\\
+\indent For the inverse we need to show that if $X$ is complete then $X$ is closed. Consider a limit point $x \in X$. By the definition of a limit point there is $p_1 \in X$ such that $d(p_1,x) < \frac{1}{2}$. Similarly we may find a $p_2 \in X$ such that $d(p_2,x) < \frac{1}{4}$ and so on. In this way we produce a sequence in $X$ such that $d(p_n,x) < \frac{1}{2^n}$. This sequence converges to a point $p$. Since every convergent sequence is a Cauchy sequence by a theorem in Rudin and $X$ is complete the point of convergence must be in $X$ so $p \in X$ and $X$ is closed.
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -39,6 +41,12 @@
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+\noindent Part a) We need to show that if $(x_{2n})$ and $(x_{2n-1})$ both converge to the same limit then $(x_n)$ converges and vice versa. Concluding that $(x_{2n})$ and $(x_{2n-1})$ converge when $(x_n)$ follows from the fact that every subsequence of convergent series converges to the same limit. The other conclusion that $(x_n)$ converges if $(x_{2n})$ and $(x_{2n-1})$ do goes as follows.\\
+\indent Since $(x_{2n})$ converges there exists an $N_1$ such that for given $\epsilon$ we have $|x_{2n}-x'| < \epsilon$ for $n > N_1$ where $x'$ is the limit. Similarly for $(x_{2n-1})$ we have $N_2$ such that  $|x_{2n-1}-x'| < \epsilon$ for $n > N_2$. If we take $N = \text{max} (2N_1,2N_2)$ then for $n > N$ we have $|x_n -x'| < \epsilon$ since either $x_n = x_{2n'}$ or $x_n = x_{2n'-1}$ for some $n'$. This shows that $(x_n)$ converges by virtue of the convergence of $(x_{2n})$ and $(x_{2n-1})$.\\
+
+\noindent Part b) Now we need to show that $(x_n)$ converges if $(x_{2n})$,$(x_{2n-1})$, and $(x_{5n})$ all converge. We suppose that $\lim_{n \to \infty}(x_{2n}) = \alpha$ and, $\lim_{n \to \infty}(x_{2n-1}) = \beta$ and $\alpha \neq \beta$. \\
+\indent There is a subsequence of $(x_{5n})$ that is a subsequence of $(x_{2n})$ since if $n = 2k$ we have $5n = 5(2k) = 2(5k) = 2j$ where $j = 2k$. So for even $n$, then subsequence of $(x_{5n})$ is a subsequence of $(x_{2n})$. Since every subsequence of a convergent sequence converges to the same limit then we have $\lim_{n \to \infty}x_{5n} = \lim_{k \to \infty} x_{5(2k)} = \lim_{k \to \infty}x_{2(2k)} = \lim_{n \to \infty}x_{2n} = \alpha$.\\
+\indent Similarly there is a subsequence of $(x_{5n})$ that is a subsequence of $(x_{2n-1})$   since if $n = 2k-1$ then $5n = 5(2k-1) = 10k -5 = 2(5k-2)-1= 2j-1$ where $j=5k-2$. By the same reasoning as the previous paragraph we get $\lim_{n \to \infty}x_{5n} = \lim_{k \to \infty} x_{5(2k-1)} = \lim_{k \to \infty}x_{2(2k-1)-1} = \lim_{n \to \infty}x_{2n-1} = \beta$. This shows that $\alpha = \beta$ contrary to our hypothesis so  $(x_{2n})$ and $(x_{2n-1})$ must converge to the same limit and by part a this must be the limit of the origin sequence $(x_n)$.
 
 \vspace{15pt}
 \begin{flushleft} 
