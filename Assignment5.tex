@@ -54,6 +54,25 @@ First we show that $X$ being closed implies completeness. Since a Cauchy sequenc
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+We need to show that  $\limsup (x_n + y_n) \le \limsup x_n + \limsup y_n$. First we point out that the set of all subsequences is closed which means by a theorem of Rudin that the supremum is included in the set. This means there exists a subsequence that limits to this value which is the limit supremum. So, if $(x_{m_k})$ is any subsequence and $(x_{n_k})$ is a sequence that limits to the limit supremum then  $\lim_{k \to \infty}(x_{m_k}) \le \lim_{k \to \infty}(x_{n_k})$ by the definition of the upper limit.\\
+\indent if we let $(x_{m_k} + y_{m_k})$ be the limit supremum sequence of ($x_n + y_n$)  and $(x_{n_k})$ and $(y_{n_k})$ be the limit supremum sequences of their individual sequences respectively then we have the following calculation that gives the result
+\begin{eqnarray*}
+\limsup (x_n + y_n) & = & \lim_{k \to \infty}(x_{m_k} + y_{m_k}) \\
+			      & = & \lim_{k \to \infty} x_{m_k} + \lim_{k \to \infty}y_{m_k}\\
+                                          & \le & \lim_{k \to \infty} x_{n_k} + \lim_{k \to \infty}y_{n_k}\\
+			      & = & \limsup \; x_n + \limsup \;y_n
+\end{eqnarray*}
+
+The observation that if $(x_{m_k})$ is any sequence then $\lim_{k \to \infty}(x_{m_k}) \ge \liminf\; x_n$ allows the reasoning in the previous paragraphs to show the result for the $\liminf$.\\
+\indent Now we need to show that if $(x_n)$ converges then we get equality instead of the inequality. Since $x_n$ converges by hypothesis every subsequence converges to the same limit. No suppose that $\{n_k\}$ is a set of integers such that the subsequence of $(y_n)$ converges to the $\limsup$. That is, $\lim_{k \to \infty}y_{n_k} = \limsup y_n$. If we use the same set of integers for $(x_n)$ then we have the subsequence $(x_{n_k} + y_{n_k} )$. Since by definition the limit supremum is the least upper bound of subsequential limits we have the following \[\limsup(x_n + y_n) \ge \lim_{k \to \infty}(x_{n_k} + y_{n_k})\]
+Since $x_n$ converges and every subsequence converges to the same limit, a limit supremum sequence of this sequence must equal to same limit as any subsequence. So we have 
+\begin{eqnarray*}
+\limsup(x_n + y_n) & \ge & \lim_{k \to \infty}(x_{n_k} + y_{n_k})\\
+                                  & = & \lim_{k \to \infty}x_{n_k} + \lim_{k \to \infty}y_{n_k}\\
+                                  & = & \limsup x_n + \lim_{k \to \infty}y_{n_k} \; \text{by the previous comment}\\
+                                 & = & \limsup x_n + \limsup y_n \;  \text{by the definition of the subsequence}\;\{n_k \}
+\end{eqnarray*}
+ Since both $\limsup(x_n + y_n) \ge \limsup x_n + \limsup y_n$ and $\limsup(x_n + y_n) \le \limsup x_n + \limsup y_n$ from the previous part of the problem we have  $\limsup(x_n + y_n) = \limsup x_n + \limsup y_n$. The reasoning for the $\liminf$ is the same with appropriate inequality signs reversed.
 
 \vspace{15pt}
 \begin{flushleft} 
