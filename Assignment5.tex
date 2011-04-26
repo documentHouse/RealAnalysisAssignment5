@@ -84,8 +84,16 @@ Let's quickly show that if $\liminf x_n = \limsup x_n = x'$ then $\lim_{n \to \i
 \indent From looking at the inequality we are intended to prove $\liminf x_n \le \liminf a_n \le \limsup a_n \le \limsup x_n$ we can see by the result just shown that if $x_n \to x$ then $a_n \to x$. This is so because if  $x_n \to x$ then $\liminf x_n = \limsup x_n$ since they are both subsequences of a convergent sequence. Also if $\liminf a_n < \limsup a_n$ then we violate the inequality we are suppose to prove because then we have $x \le \liminf a_n < \limsup a_n \le x$ which is impossible. From our previous remarks $\liminf a_n = \limsup a_n$ shows $a_n \to a$ so we have $x \le a \le x$ which implies that $x = a$ or $a_n \to x$ if $x_n \to x$. So our goal becomes to try to show the inequality and the main result will follow.\\
 \indent Because $ \liminf a_n < \limsup a_n $ follows directly from the definitions of the upper and lower limits and greatest/least upper bounds we will focus on showing $\limsup a_n < \limsup x_n$ and then comment on how the result can be adapted to the lower limit.\\
 \indent We start as suggested in the problem by letting $x^* = \limsup x_n$ and $K = \{ k \in \mathbb{N} \; | \; x_k \ge x^* + \epsilon \}$. We note that $K$ is finite for otherwise we would have an infinite number of points in the interval $[x^* + \epsilon, \text{sup} \; x_n]$. This compact set will have a limit point and so there is a subsequence whose limit is $\ge x^* + \epsilon$ contrary to the definition of $x^*$. Next we define $\mathcal{S}_n = \{ i \in \mathbb{N} \; | \; i \in K \; \text{and} \; i \le n\}$ and $\mathcal{T}_n = \{ i \in \mathbb{N} \; | \; i \notin K \; \text{and} \; i \le n\}$. Either $x_k \ge x^* + \epsilon$ or $x_k < x^* + \epsilon$ for all $k \in \mathbb{N}$ so $x_n \in \mathcal{S}_n$ or $x_n \in \mathcal{T}_n$. $\mathcal{S}_n$ only includes points in $K$ so we know that it is finite because $K$ is. This means that we can always rearrange the sum $\sum_n x_n$ so that the terms with indices in $\mathcal{S}_n$ will be at the front because a finite rearrangement does not change the value of a series. Since the other terms must be $\mathcal{T}_n$ we have the sum $\sum_n x_n = s_n + t_n$ where $s_n = \sum_{i \in \mathcal{S}_n}x_i$ and $t_n = \sum_{i \in \mathcal{T}_n}x_i$. \\
-\indent By the definition of $\mathcal{T}_n$ we know that if $k \in \mathcal{T}_n$ then $k \notin K$ so $x_k < x^* + \epsilon$. So $t_ n = \sum_{k \in \mathcal{T}_n}^n x_k < n(x^* + \epsilon)$ 
-which gives $\frac{t_n}{n} < x^* + \epsilon$. This gives $\limsup \frac{t_n}{n} \le x^* + \epsilon$. Also, because $\mathcal{S}_n$ is finite we know that the sum of all $x_k$ with $k \in K$ is a finite value as well and so is an upper bound $S$ on the sum $s_n$. Therefore we have $\frac{s_n}{n} < \frac{S}{n}$ for all $n$. This gives $\limsup \frac{s_n}{n} = 0$.
+\indent By the definition of $\mathcal{T}_n$ we know that if $k \in \mathcal{T}_n$ then $k \notin K$ so $x_k < x^* + \epsilon$. So $t_ n = \sum_{k \in \mathcal{T}_n} x_k < n(x^* + \epsilon)$ 
+which gives $\frac{t_n}{n} < x^* + \epsilon$. This gives $\limsup \frac{t_n}{n} \le x^* + \epsilon$. Also, because $\mathcal{S}_n$ is finite we know that the sum of all $x_k$ with $k \in K$ is a finite value as well and so is an upper bound $S$ on the sum $s_n$. Therefore we have $\frac{s_n}{n} < \frac{S}{n}$ for all $n$. This gives $\limsup \frac{s_n}{n} = 0$.\\
+\indent Using the result from the previous problem we derive:
+\begin{equation}
+\limsup a_n = \limsup(\frac{s_n}{n} + \frac{t_n}{n}) \le  \limsup \frac{s_n}{n} +\limsup \frac{t_n}{n} = 0 + x^* + \epsilon
+\end{equation}
+
+We have that $\limsup a_n \le x^* + \epsilon$ but $\epsilon$ is arbitrary so $\limsup a_n \le x^*$. Otherwise we would have $\limsup a_n - x^* = \beta > 0$ then let $\epsilon = \frac{\beta}{2}$ and we violate the inequality  $\limsup a_n \le x^* + \epsilon$. Since $x^* = \limsup x_n$ we have $\limsup a_n \le \limsup x_n$ as was to be shown. By defining $K' = \{ k \in \mathbb{N} \; | \; x_k \le x' + \epsilon \}$ with $x' = \liminf x_n$ and repeating the previous arguments using $
+\liminf$ instead of $\limsup$ we get $\liminf x_n \le \liminf a_n$ which completes the inequality.\\
+\indent A counterexample to show that if $a_n$ may converge but $x_n$ will not is the sequence $x_n = (1,0,1,0,1,0,1,\cdots)$. From inspection it is clear that $a_n = (1,\frac{1}{2},\frac{2}{3},\frac{1}{2},\frac{3}{5},\frac{1}{2},\frac{4}{7},\cdots)$ which is to say $a_n = \frac{1}{2}$ for even indices and $a_n = \frac{n}{2n-1}$ for odd indices. From this we see $a_n \to \frac{1}{2}$ and that $x_n$ does not converge.
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -93,7 +101,37 @@ which gives $\frac{t_n}{n} < x^* + \epsilon$. This gives $\limsup \frac{t_n}{n} 
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+Our first step is to show that the sequence $x_{n+1} = 1 - \sqrt{1-x_n}$ is bounded. We are given that $1 > x_1 > 0$. Now assume that $1 > x_n > 0$. Then we have
+\begin{eqnarray*}
+ 0 < 1 - x_n < 1 &\implies& 1 > \sqrt{1- x_n} > 0 \\
+                          &\implies& -1 < -\sqrt{1-x_n} < 0 \\
+                          &\implies& 0 < 1 - \sqrt{1-x_n} < 1 \\
+                          &\implies& 0 < x_{n+1} < 1
+\end{eqnarray*}
+This completes the induction and shows that $x_n$ is bounded by 0 and 1. We can now show that the sequence decreases. Since $x_n >$ we have the following calculation
+\begin{eqnarray*}
+x_n > 0 & \implies & 1 > 1 - x_n \\
+	 & \implies & 1-x_n > (1-x_n)^2 \quad \text{since $1 > x_n$ implies $1 - x_n > 0$} \\
+	 & \implies & x_n > 1 - \sqrt{1-x_n} \\
+ 	& \implies & x_n > x_{n+1} \\
+\end{eqnarray*}
+This shows that $(x_n)$ is strictly decreasing. Since the sequence is both decreasing and bounded below we know from a theorem in Rudin that the sequence converges. This allows us to perform the following calculation.
+\[
+x = \lim_{n \to \infty} x_{n+1} = \lim_{n \to \infty} 1 - \sqrt{1 - x_n} = 1- \sqrt{1 - x}
+\]
 
+So $x = 1 - \sqrt{1-x}$ where $x = \lim_{n \to \infty} x_{n+1}$, solving the equation for $x$ yields $x = 0$ as was to be shown.\\
+\indent The last part of the problem is to show that $\lim_{n \to \infty}\frac{x_{n+1}}{x_n} \to \frac{1}{2}$. We perform to the following calculation to get an appropriate form for the desired limit.
+\begin{eqnarray*}
+x_{n+1} &=& 1 - \sqrt{1 - x_n} \\
+1 - x_{n+1} &=& \sqrt{1 - x_n} \\
+(1 - x_{n+1})^2 &=& 1 - x_n \quad \text{Since $1 - x_n > 0$ implies that $1 - x_n \neq 0$}\\
+1 - 2 x_{n+1} + x_{n+1}^2 &=& 1 - x_n \\
+2 x_{n+1} - x_{n+1}^2 &=& x_n \\
+\frac{x_{n+1}}{x_n}(2 - x_{n+1})&=& 1 \\
+\frac{x_{n+1}}{x_n}&=& \frac{1}{2 - x_{n+1}} \\
+\end{eqnarray*}
+ From this we see that \[\lim_{n \to \infty} \frac{x_{n+1}}{x_n} = \lim_{n \to \infty}\frac{1}{2-x_{n+1}} = \frac{1}{2}\] since as was already established $\lim_{n \to \infty} x_{n+1} = 0$. This completes the problem.
 \vspace{15pt}
 \begin{flushleft} 
 \textbf{Class 18.100B} - Problem 6\\
