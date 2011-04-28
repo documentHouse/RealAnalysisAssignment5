@@ -138,18 +138,74 @@ x_{n+1} &=& 1 - \sqrt{1 - x_n} \\
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+Part a) We need to show that the Greek definition of the golden ratio corresponds to the equation $\Phi^2 = \Phi + 1$. \\
+\indent According to the Greek definition we have \[a = b + c\] since the side $A$ is broken up into $B$ and $C$ where $a,b$ and $c$ are their respective lengths. We are also give that the ratio of the length of the whole $A$ to the largest part $B$ is the same as the ratio of the largest part $B$ to the smaller part $C$. This gives the relationship \[\frac{a}{b} =\frac{b}{c}\] From this we derive \begin{equation}
+a = \frac{b^2}{c} \label{eqn:wholeinparts}
+\end{equation}
 
+From the equation $a = b + c$ we get \[ \frac{a}{b} = \frac{b}{c} + 1 \] if we now substitute the equation $(\ref{eqn:wholeinparts})$ we get the follow equation \[ \frac{b^2}{c^2} = \frac{b}{c} + 1 \] and if we now let $\Phi = \frac{b}{c}$ we get 
+\begin{equation} 
+\Phi^2 = \Phi + 1 \label{eqn:goldenquadratic}
+\end{equation} 
+If we now use the quadratic formula to solve this equation and eliminate the negative root on the grounds that the value must be positive by the greek definition we arrive at the value $\Phi = \frac{1 + \sqrt{5}}{2}$\\
+
+Part b) We now want to show that \[ \Phi = 1+ \cfrac{1}{1+\cfrac{1}{1+\cfrac{1}{1+\cdots}}} \] If we let $x_{n+1} = 1 + \frac{1}{x_{n}}$ and $x_1 = 1$ then this sequence reproduces the continued fraction. We need to show this sequence converges to the $\Phi$. \\
+\indent We first want to show that the sequence is bounded $1 \le x_n \le 2$. We will show that $1 < x_n < 2$ for $n \ge 3$. For $x_3 = \frac{3}{2}$ the inequality is true. Now assume the inequality for a give $n > 3$. Then we have the following calculation
+\[ 1 < x_n < 2 \implies \frac{1}{2} < x_n < 1 \implies 1 < \frac{3}{2} < 1 + \frac{1}{x_n} < 2  \implies 1 < x_{n+1} < 2\]
+This completes the induction for the inequality $1 < x_n < 2$. Now, since we have $x_1 = 1$ and $x_2 = 2$ we actually have the bound $1 \le x_n \le 2$ for all $n$ and the sequence is bounded.\\
+\indent We now show that the sequence $(x_n)$ increases for odd $n$ and decreases for even $n$. First consider 
+\begin{equation}
+ x_{n+2} = 1 + \frac{1}{x_{n+1}} = 1 + \frac{1}{1 + \frac{1}{x_n}} = 1 + \frac{x_n}{x_n + 1} \label{eqn:extendfib}
+\end{equation} 
+
+We show that the even terms of the sequence decrease by induction. Since $x_2 = 2$ and $x_4 = \frac{5}{3}$ we have $x_2 > x_4$. Assume that $x_{2n} > x_{2n+2}$ and performing the following calculation shows the induction step
+\begin{eqnarray*}
+x_{2n} &>& x_{2n+2} \\
+x_{2n} x_{2n+2} + x_{2n} &>& x_{2n} x_{2n+2} + x_{2n+2} \\
+(x_{2n+2} + 1)x_{2n} &>& (x_{2n} + 1) x_{2n+2} \\
+\frac{x_{2n}}{x_{2n} + 1} &>& \frac{x_{2n+2}}{x_{2n + 2} + 1}\\
+1 + \frac{x_{2n}}{x_{2n} + 1} &>& 1+ \frac{x_{2n+2}}{x_{2n + 2} + 1}\\
+x_{2n+2} &>& x_{2n+4} \quad \text{by equation (\ref{eqn:extendfib})}
+\end{eqnarray*}
+
+This shows that the subsequence of even indices decreases. We notice that $x_1 = 1$ and $x_3 = \frac{3}{2}$ so $x_1 < x_3$ and assume that $x_{2n-1} < x_{2n+1}$ and perform the same calculation as above we show that the odd indices subsequence increases. Because both subsequences are monotonic and bounded they both converge. Both subsequences can be considered written as \[x_{n+2} = 1 + \frac{x_n}{x_n + 1}\] with restrictions on the indices. So for example if $n = 2m$ and is even then we have the following value for the limit.
+\[ x = \lim_{m \to \infty} x_{2m + 2} = \lim_{m \to \infty}1 + \frac{x_{2m}}{x_{2m} + 1} = 1 + \frac{x}{x + 1} \]
+If we multiple both sides by $x + 1$ we get $x^2 + x = x + 1 + x \implies x^2 = x + 1$. So the limit of the subsequence satisfies the golden mean quadratic. Since $x_n \ge 1 > 0$ for all n we take the positive root of the equation. The odd sebsequence has the same limit by the reasoning above. Since both the even and odd subsequences limit to the same value $\Phi$ problem 2 tells us that the full sequence has the property that $\lim_{n \to \infty} x_n = \Phi$. So the infinite fraction has the value of the golden mean.\\
+
+Part c) Now we want to show that $\Phi = \sqrt{1 + \sqrt{1 + \sqrt{1 + \sqrt{1 + \cdots }}}} $%+ \sqrt{1 + \{sqrt{1 + \cdots}}}}$ \\
+As in part b by we define a sequence and show that it converges to the expected value.\\
+\indent Let $y_n = \sqrt{1 + y_n}$ and $y_1 = 1$. First we show that it is bounded above by 2. Since $y_1 = 1 < 2$ we have the induction base. Now assume that $y_n < 2$ since $y_{n+1} = \sqrt{1 + y_n} < \sqrt{1 + 2} = \sqrt{3} < 2$ we have the complete induction step so $(y_n)$ is bounded above by 2.\\
+\indent In a similarly inductive fashion we can show that the sequence is monotonically increasing. For $y_1 = 1$ and $y_2 = \sqrt{2}$ so $y_1 < y_2$. Now assume that $y_n < y_{n+1}$ and perform the following calculation to show the inductive step.
+\begin{eqnarray*}
+y_n &<& y_{n+1} \\
+1 + y_n &<& 1 + y_{n+1} \\
+\sqrt{1 + y_n} &<& \sqrt{1 + y_{n+1}} \\
+y_{n+1} &<& y_{n+2}
+\end{eqnarray*}
+Because $(y_n)$ is bounded above and monotonically increasing in converges. This allows us to perform the following calculation
+\[ y = \lim_{n \to \infty} y_{n+1} = \lim_{n \to \infty} \sqrt{1 + y_n} = \sqrt{1 + y}  \]
+Squaring both sides gives us \[ y^2 = y + 1 \] which is the equation for the golden mean. Because $y_1 = 1$ and the sequence is monotonically increasing we are compelled to take the positive root of this equation and get the derive the fact that $\lim_{n \to \infty} y_n = \Phi$.\\
+
+Part d) Finally we want to show that the sequence $z_{n+2} = z_{n+1} + z_n$ with $z_1 = 1$ and $z_2 = 1$ has the property that $\lim_{n \to \infty} \frac{z_{n+1}}{z_{n}} = \Phi$. If we divide both sides of $z_{n+2} = z_{n+1} + z_n$ with $z_{n+1}$ then we get 
+\[ \frac{z_{n+2}}{z_{n+1}} = 1 + \frac{z_n}{z_{n+1}} \]
+ If we now define $x_n = \frac{z_{n+1}}{z_n}$ then we have $x_1 = \frac{z_2}{z_1} = 1$ and 
+\[ x_{n+1} = 1 + \frac{1}{x_n}\] 
+This is indentical to part b so we have 
+\[ \lim_{n \to \infty}  \frac{z_{n+1}}{z_n} = \lim_{n \to \infty} x_n = \Phi\]
+
+\indent 
 \vspace{15pt}
 \begin{flushleft} 
-\textbf{Class 18.100B} - Problem 7\\
+\textbf{Class 18.100B} - Extra Problem 1\\
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+We are being asked to show that if every subsequence of $(x_n)$ has a subsequence that converges to $x$ then $\lim_{n \to \infty} x_n = x$. Since the set of subsequential limits is closed by a theorem in rudin we can find subsequences such that 
+\begin{eqnarray*}
+\lim_{k \to \infty} x_{m_k} &=& \liminf x_n \\
+\lim_{k \to \infty} x_{n_k} &=& \limsup x_n \\
+\end{eqnarray*}
 
-\vspace{15pt}
-\begin{flushleft} 
-\textbf{Class 18.100B} - Extra Problem \\
-\rule{500pt}{1pt}\\
-\end{flushleft} 
+Since any subsequence of a convergent sequence converges to the same limit as original sequence we have from the hypothesis that $\liminf x_n = x = \limsup x_n$. From comments made in Problem 4 we see that $\liminf x_n = \limsup x_n \implies \lim_{n \to \infty} x_n = x$.
 
 \end{document}  
